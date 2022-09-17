@@ -1,8 +1,19 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { trpc } from '../ultils/trpc'
 
 const Home: NextPage = () => {
-  return <h1 className='text-3xl text-blue-400'>Hey</h1>
+  const { data, error, isLoading } = trpc.useQuery(['hello'])
+
+  if (isLoading) {
+    return <p>Loading...</p>
+  }
+
+  if (error) {
+    ;<div>{JSON.stringify(error)}</div>
+  }
+
+  return <div>{JSON.stringify(data)}</div>
 }
 
 export default Home
