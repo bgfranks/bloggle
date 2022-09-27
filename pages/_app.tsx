@@ -3,7 +3,7 @@ import { withTRPC } from '@trpc/next'
 import { loggerLink } from '@trpc/client/links/loggerLink'
 import { httpBatchLink } from '@trpc/client/links/httpBatchLink'
 import superjson from 'superjson'
-import { appRouter } from '../server/route/appRouter'
+import { appRouter } from '../server/route/app.router'
 
 import '../styles/globals.css'
 
