@@ -2,6 +2,9 @@ import { createUserSchema, requestOtpSchema } from '../../schema/user.schema'
 import { createRouter } from '../createRouter'
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime'
 import * as trpc from '@trpc/server'
+import { sendLoginEmail } from '../../ultils/mailer'
+import { baseUrl } from '../../constants'
+import { encode } from '../../ultils/base64'
 
 export const userRouter = createRouter()
   .mutation('register-user', {
@@ -62,6 +65,11 @@ export const userRouter = createRouter()
       })
 
       // TODO send email to user
+      await sendLoginEmail({
+        token: encode(`${token.id}:${user.email}`),
+        url: baseUrl,
+        email: user.email,
+      })
 
       return true
     },
