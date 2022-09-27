@@ -29,4 +29,5 @@ export async function sendLoginEmail({
   })
 
   console.log(`Preview URL: ${nodemailer.getTestMessageUrl(info)}`)
+  console.log('hello')
 }
