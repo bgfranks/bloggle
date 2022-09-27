@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import { prisma } from '../ultils/prisma'
 
 export function createContext({
   req,
@@ -10,6 +11,7 @@ export function createContext({
   return {
     res,
     req,
+    prisma,
   }
 }
 
