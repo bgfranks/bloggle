@@ -22,7 +22,7 @@ export async function sendLoginEmail({
   })
 
   const info = await transporter.sendMail({
-    from: 'Jane Doe <j.doe@example.com>',
+    from: '"Jane Doe" <j.doe@example.com>',
     to: email,
     subject: 'Login to your account',
     html: `Login by clicking <a href="${url}/login#token=${token}">HERE</a>`,
