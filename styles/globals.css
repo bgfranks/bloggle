@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .form-container {
+    @apply flex justify-center items-center;
+  }
+
+  .custom-form {
+    @apply flex flex-col bg-gray-500 mt-10 justify-center items-center w-[800px] rounded-md;
+  }
+
+  .form-header {
+    @apply text-white text-3xl font-bold my-5;
+  }
+
+  .btn {
+    @apply bg-[#2CA58D] text-white text-lg p-3 rounded-md hover:ring-gray-200 focus:outline-none active:ring-gray-300 hover:bg-[#21806D];
+  }
+
+  .form-input {
+    @apply mb-5 rounded-md h-10 text-lg w-[80%] pl-2;
+  }
+
+  .form-textarea {
+    @apply mb-5 w-[80%] h-40 text-xl rounded-md pl-2;
+  }
+}

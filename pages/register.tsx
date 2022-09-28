@@ -18,19 +18,31 @@ export default function RegisterPage() {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <div className='form-container'>
+      <form className='custom-form' onSubmit={handleSubmit(onSubmit)}>
         {error && error.message}
-        <h1>Register</h1>
+        <h1 className='form-header'>Register</h1>
         <input
+          className='form-input'
           type='email'
           placeholder='jane.doe@example.com'
           {...register('email')}
         />
-        <input type='text' placeholder='Jane Doe' {...register('name')} />
-        <button type='submit'>Register</button>
+        <input
+          className='form-input'
+          type='text'
+          placeholder='Jane Doe'
+          {...register('name')}
+        />
+        <button className='btn w-[80%]' type='submit'>
+          Register
+        </button>
+        <Link className='' href='/login'>
+          <span className='text-white text-lg my-5 cursor-pointer hover:text-gray-200'>
+            Login
+          </span>
+        </Link>
       </form>
-      <Link href='/login'>Login</Link>
-    </>
+    </div>
   )
 }

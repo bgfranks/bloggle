@@ -45,23 +45,27 @@ function LoginForm() {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <div className='form-container'>
+      <form className='custom-form' onSubmit={handleSubmit(onSubmit)}>
         {error && error.message}
 
         {success && <p>Check your email</p>}
-        <h1>Login</h1>
+        <h1 className='form-header'>Login</h1>
 
         <input
+          className='form-input'
           type='email'
           placeholder='jane.doe@example.com'
           {...register('email')}
         />
-        <button>Login</button>
+        <button className='btn w-[80%]'>Login</button>
+        <Link href='/register'>
+          <span className='text-white text-lg my-5 cursor-pointer hover:text-gray-200'>
+            Register
+          </span>
+        </Link>
       </form>
-
-      <Link href='/register'>Register</Link>
-    </>
+    </div>
   )
 }
 
