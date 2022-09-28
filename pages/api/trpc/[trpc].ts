@@ -1,9 +1,9 @@
 import * as trpcNext from '@trpc/server/adapters/next'
 import { createContext } from '../../../server/createContext'
-import { appRouter } from '../../../server/route/app.router'
+import { AppRouter } from '../../../server/route/app.router'
 
 export default trpcNext.createNextApiHandler({
-  router: appRouter,
+  router: AppRouter,
   createContext,
   onError({ error }) {
     if (error.code === 'INTERNAL_SERVER_ERROR') {
