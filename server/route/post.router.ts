@@ -1,5 +1,5 @@
-import * as trpc from '@trpc/server'
 import { createPostSchema, getSinglePostSchema } from '../../schema/post.schema'
+import * as trpc from '@trpc/server'
 import { createRouter } from '../createRouter'
 
 export const postRouter = createRouter()
@@ -18,7 +18,7 @@ export const postRouter = createRouter()
           ...input,
           user: {
             connect: {
-              id: ctx.user.id,
+              id: ctx.user?.id,
             },
           },
         },
@@ -34,7 +34,7 @@ export const postRouter = createRouter()
   })
   .query('single-post', {
     input: getSinglePostSchema,
-    resolve({ ctx, input }) {
+    resolve({ input, ctx }) {
       return ctx.prisma.post.findUnique({
         where: {
           id: input.postId,
