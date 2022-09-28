@@ -18,12 +18,23 @@ export default function CreatePostPage() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      {error && error.message}
-      <h1>Create Post</h1>
-      <input type='text' placeholder='Your Post Title' {...register('title')} />
-      <textarea placeholder='Your Post' {...register('body')} />
-      <button>Create Post</button>
-    </form>
+    <div className='form-container'>
+      <form onSubmit={handleSubmit(onSubmit)} className='custom-form'>
+        {error && error.message}
+        <h1 className='form-header'>Create Post</h1>
+        <input
+          className='form-input'
+          type='text'
+          placeholder='Your Post Title'
+          {...register('title')}
+        />
+        <textarea
+          className='form-textarea'
+          placeholder='Your Post'
+          {...register('body')}
+        />
+        <button className='btn w-[80%] mb-10'>Create Post</button>
+      </form>
+    </div>
   )
 }
